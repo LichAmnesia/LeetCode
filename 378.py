@@ -2,10 +2,11 @@
 # @Author: Lich_Amnesia
 # @Email: alwaysxiaop@gmail.com
 # @Date:   2016-09-03 23:38:45
-# @Last Modified time: 2016-09-03 23:48:25
+# @Last Modified time: 2016-09-03 23:50:12
 # @FileName: 378.py
 
 
+# Solution: change matrix to list, then apply sort function
 class Solution(object):
     def kthSmallest(self, matrix, k):
         """
