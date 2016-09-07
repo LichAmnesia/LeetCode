@@ -2,10 +2,10 @@
 # @Author: Lich_Amnesia
 # @Email: alwaysxiaop@gmail.com
 # @Date:   2016-09-06 22:18:41
-# @Last Modified time: 2016-09-07 00:18:39
+# @Last Modified time: 2016-09-07 08:20:16
 # @FileName: 61.py
 
-import copy
+
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
@@ -30,7 +30,6 @@ class Solution(object):
         tmp = head
         for i in range(k):
             tmp = tmp.next
-        for i in range(k):
             last.next = ListNode(head.val)
             last = last.next
             head = head.next
