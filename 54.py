@@ -2,7 +2,7 @@
 # @Author: Lich_Amnesia
 # @Email: alwaysxiaop@gmail.com
 # @Date:   2016-09-07 08:20:28
-# @Last Modified time: 2016-09-07 08:39:56
+# @Last Modified time: 2016-09-07 10:49:21
 # @FileName: 54.py
 
 
@@ -22,13 +22,13 @@ class Solution(object):
         now_dir = 0
         ir = 0
         ic = -1
-        print step
+        # print step
         while step[now_dir % 2] > 0:
             for i in range(step[now_dir % 2]):
                 x, y = dirc[now_dir]
                 ir += x
                 ic += y
-                print ir, ic
+                # print ir, ic
                 res.append(matrix[ir][ic])
             step[now_dir % 2] -= 1
             now_dir = (now_dir + 1) % 4
