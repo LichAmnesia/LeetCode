@@ -2,8 +2,9 @@
 # @Author: Lich_Amnesia
 # @Email: alwaysxiaop@gmail.com
 # @Date:   2016-09-02 01:53:36
-# @Last Modified time: 2016-09-02 02:02:58
+# @Last Modified time: 2016-09-07 08:11:28
 # @FileName: 7.py
+
 
 class Solution(object):
     def reverse(self, x):
