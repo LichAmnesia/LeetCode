@@ -22,7 +22,8 @@ class Solution(object):
         """
 
         ans = []
-
+        if root is None:
+            return []
         def zhongxu(r):
             if r.left:
                 zhongxu(r.left)
@@ -32,3 +33,4 @@ class Solution(object):
                 zhongxu(r.right)
 
         zhongxu(root)
+        return ans
