@@ -1,23 +1,56 @@
 # -*- coding: utf-8 -*-
-# @Author: Lich Amnesia
-# @Date:   2016-09-25 11:45:04
-# @Last Modified by:   Lich Amnesia
-# @Last Modified time: 2016-09-25 12:03:57
+# @Author: Lich_Amnesia
 # @Email: alwaysxiaop@gmail.com
+# @Date:   2016-09-29 09:52:54
+# @Last Modified time: 2016-09-29 10:01:41
+# @FileName: 155.py
 
 
-class Solution(object):
+class MinStack(object):
 
-    def rotate(self, nums, k):
+    def __init__(self):
         """
-        :type nums: List[int]
-        :type k: int
-        :rtype: void Do not return anything, modify nums in-place instead.
+        initialize your data structure here.
         """
-        k = k % len(nums)
-        if k == 0:
-            return
-        ans = []
-        n = len(nums)
-        nums[:k], nums[k:] = nums[n-k:], nums[:n-k]
-        # nums[:] = nums[-k:] + nums[:len(nums)-k]
+        self.st = []
+        self.min = None
+
+    def push(self, x):
+        """
+        :type x: int
+        :rtype: void
+        """
+        cur = self.getMin()
+        if cur is None or cur > x:
+            cur = x
+        self.st.append([cur, x])
+
+    def pop(self):
+        """
+        :rtype: void
+        """
+        self.st.pop()
+
+    def top(self):
+        """
+        :rtype: int
+        """
+        if len(self.st) < 1:
+            return None
+        return self.st[-1][1]
+
+    def getMin(self):
+        """
+        :rtype: int
+        """
+        if len(self.st) < 1:
+            return None
+        return self.st[-1][0]
+
+
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(x)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
