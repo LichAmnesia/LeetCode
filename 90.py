@@ -3,7 +3,7 @@
 # @Email: alwaysxiaop@gmail.com
 # @Date:   2016-10-11 20:27:45
 # @Last Modified by:   Lich Amnesia
-# @Last Modified time: 2016-10-11 20:27:59
+# @Last Modified time: 2016-10-11 20:44:29
 
 
 class Solution(object):
@@ -14,4 +14,5 @@ class Solution(object):
         """
         res = set()
         for num in nums:
-            
+            res |= {r + (num, ) for r in res}
+        return res

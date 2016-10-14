@@ -2,7 +2,7 @@
 # @Author: Lich_Amnesia
 # @Email: alwaysxiaop@gmail.com
 # @Date:   2016-10-07 20:24:36
-# @Last Modified time: 2016-10-07 20:30:25
+# @Last Modified time: 2016-10-07 20:51:59
 # @FileName: 227.py
 
 
@@ -28,4 +28,4 @@ class Solution(object):
             else:
                 now = int(s[idx])
             idx += 1
-        return op['+'](total, now)
+        return func(total, now)
