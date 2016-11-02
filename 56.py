@@ -1,13 +1,9 @@
 # -*- coding: utf-8 -*-
-# @Author: Lich Amnesia
+# @Author: Lich_Amnesia
 # @Email: alwaysxiaop@gmail.com
-# @Date:   2016-10-30 00:30:20
-# @Last Modified by:   Lich Amnesia
-# @Last Modified time: 2016-10-30 00:36:19
-
-# What can we do if we insert multiply times
-# https://discuss.leetcode.com/topic/53458/facebook-interview-followup-how-to-improve-if-called-multiple-times/3
-
+# @Date:   2016-11-01 22:09:16
+# @Last Modified time: 2016-11-01 22:13:59
+# @FileName: 56.py
 
 # Definition for an interval.
 # class Interval(object):
@@ -16,27 +12,19 @@
 #         self.end = e
 
 class Solution(object):
-
-    def insert(self, intervals, newInterval):
+    def merge(self, intervals):
         """
         :type intervals: List[Interval]
-        :type newInterval: Interval
         :rtype: List[Interval]
         """
-        ans = []
-        i = 0
-        while i < len(intervals):
-            if intervals[i].end < newInterval.start:
-                ans.append(intervals[i])
+        if len(intervals) < 1: return []
+        
+        intervals = sorted(intervals, key=lambda x: (x.start, x.end))
+        ans = [intervals[0]]
+        
+        for idx, node in enumerate(intervals):
+            if ans[-1].end >= node.start:
+                ans[-1].end = max(node.end, ans[-1].end)
             else:
-                break
-            i += 1
-        while i < len(intervals) and intervals[i].start <= newInterval.end:
-            newInterval.start = min(newInterval.start, intervals[i].start)
-            newInterval.end = max(newInterval.end, intervals[i].end)
-            i += 1
-        ans.append(newInterval)
-        while i < len(intervals):
-            ans.append(intervals[i])
-            i += 1
+                ans.append(node)
         return ans
