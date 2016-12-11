@@ -2,7 +2,7 @@
 # @Author: Lich_Amnesia
 # @Email: alwaysxiaop@gmail.com
 # @Date:   2016-10-15 22:49:52
-# @Last Modified time: 2016-10-15 22:51:16
+# @Last Modified time: 2016-12-10 21:37:15
 # @FileName: 424.py
 
 
@@ -29,3 +29,23 @@ class Solution(object):
                         num_change -= 1
                     begin += 1
         return res
+
+class Solution(object):
+    def characterReplacement(self, s, k):
+        """
+        :type s: str
+        :type k: int
+        :rtype: int
+        """
+        dic = collections.Counter()
+        begin = end = 0
+        ans = 0
+        while end < len(s):
+            dic[s[end]] += 1
+            end += 1
+            if end - begin - max(dic.values()) > k:
+                dic[s[begin]] -= 1
+                begin += 1
+            else:
+                ans = max(ans, end - begin)
+        return ans
